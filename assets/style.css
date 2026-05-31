@@ -2,12 +2,9 @@
   --bg:#fbf7f4; --ink:#241c1c; --muted:#8a7d78; --line:#ece2dc;
   --rose:#c0506b; --rose-soft:#f3dde2; --card:#ffffff; --accent:#a8324e;
   --maxw:75vw;
+  color-scheme:light;
 }
 @media (max-width:760px){ :root{ --maxw:92vw } }
-@media (prefers-color-scheme: dark){
-  :root{ --bg:#161013; --ink:#efe7e4; --muted:#a8978f; --line:#2c2226;
-         --rose:#e88aa0; --rose-soft:#33222a; --card:#1d1519; --accent:#f0a7b8; }
-}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
