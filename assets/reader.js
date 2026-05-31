@@ -65,11 +65,20 @@
   // ---- open beacon (once per visitor per story) ----
   once("open", function () { post("open"); });
 
-  // ---- finished beacon (scrolled to the end sentinel) ----
+  // ---- finished beacon (genuinely reached the end) ----
+  // Guard against false positives: only count "finished" if the reader actually
+  // scrolled AND spent real time on the page, so short stories / tall screens
+  // don't auto-fire the strongest quality signal on load.
+  var startedAt = Date.now(), didScroll = false;
+  document.addEventListener("scroll", function () { didScroll = true; },
+    { passive: true, once: true });
   var end = document.getElementById("omc-end");
   if (end && "IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) { once("finished", function () { post("finished"); }); io.disconnect(); }
+      if (entries[0].isIntersecting && didScroll && (Date.now() - startedAt) > 8000) {
+        once("finished", function () { post("finished"); });
+        io.disconnect();
+      }
     }, { threshold: 0.1 });
     io.observe(end);
   }
@@ -95,7 +104,10 @@
         return;
       }
 
-      // sentiment: one per story; clicking another switches it
+      // sentiment: one per story in the UI. NOTE (accepted limitation): the
+      // backend keys on (slug, visitor_id, kind), so a reader who switches their
+      // mind leaves a row for each kind — counted additively server-side. Fine at
+      // low traffic; revisit with an upsert Edge Function if it ever skews rewards.
       Array.prototype.forEach.call(box.querySelectorAll("button:not(.share)"),
         function (b) { b.classList.remove("chosen"); });
       btn.classList.add("chosen");
