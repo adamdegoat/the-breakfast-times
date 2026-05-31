@@ -1,33 +1,44 @@
 <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Breakfast Times">
   <defs>
     <clipPath id="seal"><circle cx="60" cy="60" r="49"/></clipPath>
+    <path id="botArc" d="M 24 60 A 36 36 0 0 0 96 60" fill="none"/>
+    <path id="topArc" d="M 22 60 A 38 38 0 0 1 98 60" fill="none"/>
   </defs>
-  <!-- newspaper-text imprint behind the sun — bold mottled greys, legible -->
-  <g clip-path="url(#seal)" font-family="'Courier New',Courier,monospace" font-weight="700" font-size="5.4" letter-spacing="-0.1">
-    <text x="9" y="18" fill="#2c2823" opacity="0.80">THE BREAKFAST TIMES</text>
-    <text x="9" y="26" fill="#574f46" opacity="0.52">morning edition · no.1</text>
-    <text x="9" y="34" fill="#2c2823" opacity="0.76">good news from around</text>
-    <text x="9" y="42" fill="#4a433b" opacity="0.60">the world &amp; two short</text>
-    <text x="9" y="50" fill="#2c2823" opacity="0.70">stories with your coffee</text>
-    <text x="9" y="92" fill="#574f46" opacity="0.56">all the good that is fit</text>
-    <text x="9" y="100" fill="#2c2823" opacity="0.78">stay hydrated · be early</text>
-    <text x="9" y="108" fill="#4a433b" opacity="0.58">good news · good stories</text>
+  <!-- faint newspaper-text imprint in the sky -->
+  <g clip-path="url(#seal)" font-family="'Courier New',Courier,monospace" font-weight="700" font-size="5" letter-spacing="-0.2">
+    <text x="13" y="20" fill="#2c2823" opacity="0.62">good news from around</text>
+    <text x="13" y="27" fill="#574f46" opacity="0.42">the world &amp; two short</text>
+    <text x="13" y="34" fill="#2c2823" opacity="0.55">stories with your coffee</text>
   </g>
-  <!-- seal: single fine ring -->
-  <circle cx="60" cy="60" r="54" fill="none" stroke="#db5a3c" stroke-width="1.7"/>
-  <!-- rays: thin, varied length, fanned (organic) -->
-  <g stroke="#eaa42e" stroke-width="1.7" stroke-linecap="round">
-    <line x1="60" y1="50" x2="60" y2="37.5"/>
-    <line x1="66.6" y1="50.9" x2="69.7" y2="40.6"/>
-    <line x1="53.4" y1="50.9" x2="50.3" y2="40.6"/>
-    <line x1="74.8" y1="55.1" x2="79.4" y2="49.2"/>
-    <line x1="45.2" y1="55.1" x2="40.6" y2="49.2"/>
-    <line x1="80.8" y1="62.0" x2="84.6" y2="59.8"/>
-    <line x1="39.2" y1="62.0" x2="35.4" y2="59.8"/>
+  <!-- seal: fine outer ring + dotted inner ring (stamp detail) -->
+  <circle cx="60" cy="60" r="54" fill="none" stroke="#db5a3c" stroke-width="1.5"/>
+  <circle cx="60" cy="60" r="48" fill="none" stroke="#eaa42e" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="0.4 4.2"/>
+  <!-- curved motto along the bottom (badge detail) -->
+  <g font-family="'Inter',sans-serif" font-weight="600" font-size="4.4" letter-spacing="1.8" fill="#c0502f">
+    <text text-anchor="middle"><textPath href="#botArc" startOffset="50%">EST · MMXXVI · GOOD NEWS · GOOD STORIES</textPath></text>
+  </g>
+  <!-- rays: thin, varied length, fanned -->
+  <g stroke="#eaa42e" stroke-width="1.6" stroke-linecap="round">
+    <line x1="60" y1="49" x2="60" y2="37"/>
+    <line x1="66.6" y1="50.0" x2="69.7" y2="40.0"/>
+    <line x1="53.4" y1="50.0" x2="50.3" y2="40.0"/>
+    <line x1="74.8" y1="54.5" x2="79.4" y2="48.8"/>
+    <line x1="45.2" y1="54.5" x2="40.6" y2="48.8"/>
+    <line x1="80.8" y1="61.4" x2="84.6" y2="59.2"/>
+    <line x1="39.2" y1="61.4" x2="35.4" y2="59.2"/>
+  </g>
+  <!-- gulls -->
+  <g fill="none" stroke="#5a534a" stroke-width="0.9" stroke-linecap="round">
+    <path d="M73 31 q2 -1.8 3.9 0 q2 -1.8 3.9 0"/>
+    <path d="M80 36 q1.6 -1.5 3.2 0 q1.6 -1.5 3.2 0"/>
   </g>
   <!-- sun -->
-  <path d="M42 74 a18 18 0 0 1 36 0 Z" fill="#db5a3c"/>
-  <!-- horizon: gentle organic curve (water/earth) -->
-  <path d="M26 75.4 Q60 72.8 94 75.4" fill="none" stroke="#db5a3c" stroke-width="2.2" stroke-linecap="round"/>
-  <path d="M31 80.4 Q60 78.3 89 80.4" fill="none" stroke="#eaa42e" stroke-width="1.3" stroke-linecap="round" opacity="0.9"/>
+  <path d="M42.5 73.5 a17.5 17.5 0 0 1 35 0 Z" fill="#db5a3c"/>
+  <!-- horizon: gentle organic curve -->
+  <path d="M27 75 Q60 72.4 93 75" fill="none" stroke="#db5a3c" stroke-width="2.1" stroke-linecap="round"/>
+  <!-- sun's reflection on the water -->
+  <g stroke="#db5a3c" stroke-linecap="round" opacity="0.85">
+    <line x1="53" y1="79.5" x2="67" y2="79.5" stroke-width="1.5"/>
+    <line x1="55.5" y1="83.5" x2="64.5" y2="83.5" stroke-width="1.2"/>
+  </g>
 </svg>
