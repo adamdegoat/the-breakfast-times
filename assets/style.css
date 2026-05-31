@@ -29,6 +29,8 @@ a:hover{color:var(--rose)}
 
 /* ---------- masthead ---------- */
 .masthead{max-width:var(--wide);margin:0 auto;padding:2.4rem 1.25rem .4rem;text-align:center}
+.logo{display:inline-flex;flex-direction:column;align-items:center;text-decoration:none;gap:.55rem}
+.logo-mark{display:block;width:58px;height:58px}
 .wordmark{display:inline-block;font-family:"Fraunces",Georgia,serif;font-weight:600;
   font-size:1.18rem;letter-spacing:.30em;text-transform:uppercase;color:var(--ink);
   text-indent:.30em}
