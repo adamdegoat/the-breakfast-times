@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://adamdegoat.github.io/the-breakfast-times/sitemap.xml
